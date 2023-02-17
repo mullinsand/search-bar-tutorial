@@ -1,23 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import Data from "./mock-data.json"
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input placeholder="Enter Post Title"/>
+      {
+        Data.map((post) => (
+          <div className="box" key={post.id}>
+            <p>{post.name}</p>
+            <p>{post.category}</p>
+            <p>{post.price}</p>
+          </div>
+        ))
+      }
     </div>
   );
 }
